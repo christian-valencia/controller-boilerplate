@@ -1,13 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ROG Ally Controller Prototype</title>
-    <link rel="stylesheet" href="/src/styles.css" />
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROG Ally Controller Boilerplate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🎮 ROG Ally Controller Boilerplate</h1>
+            <p id="connection-status">Waiting for controller or press a key...</p>
+        </header>
+
+        <main>
+            <div class="controller-display">
+                <!-- Face Buttons -->
+                <div class="section face-buttons">
+                    <h2>ABXY</h2>
+                    <div class="button-grid">
+                        <div class="button" data-button="Y">Y</div>
+                        <div class="button" data-button="X">X</div>
+                        <div class="button" data-button="B">B</div>
+                        <div class="button" data-button="A">A</div>
+                    </div>
+                </div>
+
+                <!-- D-Pad -->
+                <div class="section dpad">
+                    <h2>D-Pad</h2>
+                    <div class="dpad-grid">
+                        <div class="button" data-button="UP">↑</div>
+                        <div class="button" data-button="LEFT">←</div>
+                        <div class="button" data-button="DOWN">↓</div>
+                        <div class="button" data-button="RIGHT">→</div>
+                    </div>
+                </div>
+
+                <!-- Shoulders & Triggers -->
+                <div class="section shoulders-triggers">
+                    <h2>Shoulders</h2>
+                    <div class="button-row">
+                        <div class="button" data-button="LB">LB</div>
+                        <div class="button" data-button="RB">RB</div>
+                    </div>
+                    <h2 style="margin-top: 12px;">Triggers</h2>
+                    <div class="button-row">
+                        <div class="trigger" data-button="LT">
+                            <span>LT</span>
+                            <div class="trigger-bar"><div class="trigger-fill" data-trigger="LT"></div></div>
+                        </div>
+                        <div class="trigger" data-button="RT">
+                            <span>RT</span>
+                            <div class="trigger-bar"><div class="trigger-fill" data-trigger="RT"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analog Sticks -->
+                <div class="section sticks">
+                    <h2>Analog Sticks</h2>
+                    <div class="sticks-container">
+                        <div class="stick-container">
+                            <div class="stick-label">Left Stick</div>
+                            <div class="stick-zone">
+                                <div class="stick-indicator" id="left-stick"></div>
+                            </div>
+                            <div class="stick-values">
+                                X: <span id="ls-x">0.00</span> Y: <span id="ls-y">0.00</span>
+                            </div>
+                            <div class="button small" data-button="LS">LS</div>
+                        </div>
+                        <div class="stick-container">
+                            <div class="stick-label">Right Stick</div>
+                            <div class="stick-zone">
+                                <div class="stick-indicator" id="right-stick"></div>
+                            </div>
+                            <div class="stick-values">
+                                X: <span id="rs-x">0.00</span> Y: <span id="rs-y">0.00</span>
+                            </div>
+                            <div class="button small" data-button="RS">RS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Buttons & Active Display -->
+                <div class="section menu-active">
+                    <div>
+                        <h2>Menu</h2>
+                        <div class="menu-buttons-grid">
+                            <div class="button" data-button="VIEW">VIEW</div>
+                            <div class="button" data-button="MENU">MENU</div>
+                            <div class="button" data-button="HOME">HOME</div>
+                            <div class="button" data-button="LS">LS</div>
+                        </div>
+                    </div>
+                    
+                    <div style="flex: 1; display: flex; flex-direction: column;">
+                        <h2>Active</h2>
+                        <div id="active-buttons">None</div>
+                    </div>
+                    
+                    <div>
+                        <h2>Keyboard</h2>
+                        <div class="keyboard-help">
+                            <div class="key-group"><strong>ABXY:</strong> WASD</div>
+                            <div class="key-group"><strong>D-Pad:</strong> Arrows</div>
+                            <div class="key-group"><strong>LB/RB:</strong> Q/E</div>
+                            <div class="key-group"><strong>LT/RT:</strong> Z/C</div>
+                            <div class="key-group"><strong>L-Stick:</strong> IJKL</div>
+                            <div class="key-group"><strong>R-Stick:</strong> TFGH</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="gamepad.js"></script>
+    <script src="keyboard.js"></script>
+    <script src="input.js"></script>
+    <script src="main.js"></script>
+</body>
 </html>
